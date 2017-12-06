@@ -1,0 +1,27 @@
+
+<div class="row">
+  <div class="col-sm">
+    <div class="list-group">
+      <!-- bootstrap flex: http://getbootstrap.com/docs/4.0/utilities/flex/ -->
+      <div class="list-group-item list-group-item-action flex-column align-items-start"
+        *ngFor="let message of newsItems">
+        <!-- justify-content-between: falls zwei Elemente angezeigt werden: eines am Anfang, eines am Ende, dazwischen leer   -->
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{message.headline}}</h5>
+
+          <!--  text-nowrap: kein Umbruch -->
+          <small class="text-muted text-nowrap">{{message.datetime | date :'short' }}</small>
+        </div>
+
+        <p class="mb-1">{{message.summary}}</p>
+
+        <div class="d-flex w-100 justify-content-between">
+          <small class="text-muted">{{message.source}}</small>
+          <!--  URL nach aussen, daher kein Rewrite mit @{...} -->
+          <a href="{{message.url}}" target="_blank" class="badge badge-info">Read full story</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
