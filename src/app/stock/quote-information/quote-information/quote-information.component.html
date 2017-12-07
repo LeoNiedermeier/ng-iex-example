@@ -1,0 +1,36 @@
+<div class="row">
+  <h1>Quote information for {{symbol}} </h1>
+</div>
+<div class="row" *ngIf='qouteInformation'>
+  <div class="col-sm">
+    <table class="table" id="quoteInformation">
+      <thead>
+        <tr>
+          <td></td>
+          <td>Date</td>
+          <td>Value</td>
+        </tr>
+      </thead>
+      <!-- QuoteOverview als aktuelles Object verwenden. Ausdrücke dann mit *{} statt mit ${}-->
+      <tbody>
+        <tr>
+          <td>Open</td>
+          <!-- Mit ?. null safe Abfrage -->
+          <td>{{qouteInformation.open.time | date:'dd-MM-yyyy HH:mm'}}</td>
+          <td>{{qouteInformation.open.price | number:'1.2-2'}}</td>
+        </tr>
+        <tr>
+          <td>Close</td>
+          <td>{{qouteInformation.close.time | date:'dd-MM-yyyy HH:mm'}}</td>
+          <td>{{qouteInformation.close.price | number:'1.2-2'}}</td>
+        </tr>
+        <tr>
+          <td>Current</td>
+          <td></td>
+          <td>{{qouteInformation.current.price | number:'1.2-2'}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

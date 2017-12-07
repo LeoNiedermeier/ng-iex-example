@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-sm" *ngIf="stockCompany">
+    <table class="table table-striped" id="tableRefDataSymbols">
+      <tbody>
+        <tr scope="row">
+          <td>Symbol</td>
+          <td>{{stockCompany.symbol}}</td>
+        </tr>
+        <tr scope="row">
+          <td class="text-nowrap">Company name</td>
+          <td>{{stockCompany.companyName}}</td>
+        </tr>
+        <tr scope="row">
+          <td>Exchange</td>
+          <td>{{stockCompany.exchange}}</td>
+        </tr>
+        <tr scope="row">
+          <td>Industry</td>
+          <td>{{stockCompany.industry}}</td>
+        </tr>
+        <tr scope="row">
+          <td>Website</td>
+          <td>
+            <a target="_blank" [href]="stockCompany.website">{{stockCompany.website}}</a>
+          </td>
+        </tr>
+        <tr scope="row">
+          <td>Description</td>
+          <td>{{stockCompany.description}}</td>
+        </tr>
+        <tr scope="row">
+          <td>CEO</td>
+          <td>{{stockCompany.CEO}}</td>
+        </tr>
+        <tr scope="row">
+          <td>Issue type</td>
+          <td>{{stockCompany.issueType}}</td>
+        </tr>
+        <tr scope="row">
+          <td>Sector</td>
+          <td>{{stockCompany.sector}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <a class="btn btn-info" role="button" [routerLink]="['/stock',stockCompany.symbol,'news']">News</a>
+  </div>
+</div>

@@ -1,12 +1,19 @@
+import {Quote} from './quote';
+import {QuoteInformation} from './quoteinformation';
 import {StockNewsItem} from './stocknewsitem';
 import {RefDataSymbol} from './refdatasymbol';
 import {StockCompany} from './stockcompany';
+import {DatePipe} from '@angular/common';
 import {Injectable, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/zip';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class IexService {
 
-  constructor() {}
+  constructor(private httpClient: HttpClient) {}
 
   allRefDataSymbols() {
     const refDataSymbols = new Array<RefDataSymbol>();
@@ -16,27 +23,28 @@ export class IexService {
     return refDataSymbols;
   }
 
-  stockCompany(symbol: string): StockCompany {
-    return null;
+  stockCompany(symbol: string): Observable<StockCompany> {
+    const url = `https://api.iextrading.com/1.0/stock/${symbol}/company`;
+    return this.httpClient.get<StockCompany>(url);
   }
 
-  stockNews(symbol: string): Array<StockNewsItem> {
-    const news = new Array<StockNewsItem>();
-    // datetime: Date, headline: string, source: string, summary: string
-    if ('AAAP' === symbol) {
-      news.push(new StockNewsItem(new Date('2017-12-04T11:16:00-05:00'),
-        'AAAP still has one more major product to launch this year', 'CNBC', 'AAAP AAAP, ...',
-        'https://api.iextrading.com/1.0/stock/aapl/article/4616349647182560'));
+  stockNews(symbol: string): Observable<Array<StockNewsItem>> {
+    const url = `https://api.iextrading.com/1.0/stock/${symbol}/news/last/5`;
+    return this.httpClient.get<Array<StockNewsItem>>(url);
+  }
 
-      news.push(new StockNewsItem(new Date('2017-12-01T11:11:00-05:00'),
-        'AAAP Super', 'CNBC', 'AAAP AAAP, ...',
-        'https://api.iextrading.com/1.0/stock/aapl/article/4616349647182560'));
-    }
-    if ('AABA' === symbol) {
-      news.push(new StockNewsItem(new Date('2017-12-04T11:16:00-05:00'),
-        'AABA still has one more major product to launch this year', 'CNBC', 'AABA AABA, ...',
-        'https://api.iextrading.com/1.0/stock/aapl/article/4616349647182560'));
-    }
-    return news;
+  quoteInformation(symbol: string): Observable<QuoteInformation> {
+    const openClose = this.httpClient.get(`https://api.iextrading.com/1.0/stock/${symbol}/open-close`);
+    const price = this.httpClient.get(`https://api.iextrading.com/1.0/stock/${symbol}/price`, {responseType: 'text'});
+
+    return Observable.zip(openClose, price).map(d => {
+      const oc = d[0];
+      const open = new Quote(oc['open']['time'], oc['open']['price']);
+      const close = new Quote(oc['close']['time'], oc['close']['price']);
+      const p = Number.parseFloat(d[1]);
+      const current = new Quote(null, p);
+      const qi = new QuoteInformation(current, open, close);
+      return qi;
+    });
   }
 }

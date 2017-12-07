@@ -16,7 +16,7 @@
           <td>{{item.symbol}}</td>
           <td class="text-nowrap">
             <!--  -->
-            <a class="btn btn-primary btn-sm" role="button">Details</a>
+            <a class="btn btn-primary btn-sm" role="button" [routerLink]="['/stock',item.symbol,'company']"   >Details</a>
             <a class="btn btn-info btn-sm" role="button" [routerLink]="['/stock', item.symbol, 'news']">News</a>
             <a class="btn btn-secondary btn-sm" role="button">Quote</a>
           </td>

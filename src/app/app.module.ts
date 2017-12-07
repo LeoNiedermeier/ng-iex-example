@@ -7,8 +7,9 @@ import {RefDataSymbolListComponent} from './refdata/ref-data-symbol-list/ref-dat
 import {IexService} from './shared/iex.service';
 import {StockNewsComponent} from './stock/news/stock-news/stock-news.component';
 import {Routes, RouterModule} from '@angular/router';
-import {CompanyComponent} from './stock/company/company/company.component';
-
+import {StockCompanyComponent} from './stock/company/company/stock-company.component';
+import {HttpClientModule} from '@angular/common/http';
+import { QuoteInformationComponent } from './stock/quote-information/quote-information/quote-information.component';
 
 
 @NgModule({
@@ -16,11 +17,12 @@ import {CompanyComponent} from './stock/company/company/company.component';
     AppComponent,
     RefDataSymbolListComponent,
     StockNewsComponent,
-    CompanyComponent
+    StockCompanyComponent,
+    QuoteInformationComponent
   ],
   imports: [
     BrowserModule,
-
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [IexService],

@@ -2,7 +2,6 @@ import {IexService} from '../../../shared/iex.service';
 import {StockNewsItem} from '../../../shared/stocknewsitem';
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, ParamMap} from '@angular/router';
-import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
@@ -17,6 +16,6 @@ export class StockNewsComponent implements OnInit {
   ngOnInit() {
     // https://angular.io/guide/router#snapshot-the-no-observable-alternative
     const symbol = this.activatedRoute.snapshot.paramMap.get('symbol');
-    this.newsItems = this.iexService.stockNews(symbol);
+    this.iexService.stockNews(symbol).subscribe(r => this.newsItems = r);
   }
 }
