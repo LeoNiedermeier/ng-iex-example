@@ -1,5 +1,6 @@
 import {StockCompanyComponent} from './company/company/stock-company.component';
 import {StockNewsComponent} from './news/stock-news/stock-news.component';
+import {QuoteInformationResolverService} from './quote-information/quote-information-resolver.service';
 import {QuoteInformationComponent} from './quote-information/quote-information/quote-information.component';
 import {StockComponent} from './stock/stock.component';
 import {NgModule} from '@angular/core';
@@ -20,7 +21,10 @@ const routes: Routes = [
       },
       {
         path: 'quote',
-        component: QuoteInformationComponent
+        component: QuoteInformationComponent,
+        resolve: {
+          'quoteInformation': QuoteInformationResolverService
+        }
       }
     ]
   },

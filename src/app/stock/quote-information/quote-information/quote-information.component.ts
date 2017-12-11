@@ -8,19 +8,16 @@ import {Observable} from 'rxjs/Observable';
   templateUrl: './quote-information.component.html'
 })
 export class QuoteInformationComponent implements OnInit {
-  symbol: string;
+
   qouteInformation: QuoteInformation;
 
-  constructor(
-    private iexService: IexService,
-    private activatedRoute: ActivatedRoute
+  constructor(private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit() {
-    this.symbol = this.activatedRoute.snapshot.parent.paramMap.get('symbol');
 
-    this.iexService
-      .quoteInformation(this.symbol)
-      .subscribe(qi => (this.qouteInformation = qi));
+    this.activatedRoute.data.subscribe(
+      (data: {quoteInformation, QuoteInformation}) => this.qouteInformation = data.quoteInformation
+    );
   }
 }
