@@ -7,19 +7,19 @@ import {Routes, RouterModule} from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'stock',
+    path: 'stock/:symbol',
     component: StockComponent,
     children: [
       {
-        path: ':symbol/news',
+        path: 'news',
         component: StockNewsComponent
       },
       {
-        path: ':symbol/company',
+        path: 'company',
         component: StockCompanyComponent
       },
       {
-        path: ':symbol/quote',
+        path: 'quote',
         component: QuoteInformationComponent
       }
     ]

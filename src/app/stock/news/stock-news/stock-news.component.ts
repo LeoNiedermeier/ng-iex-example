@@ -15,7 +15,7 @@ export class StockNewsComponent implements OnInit {
 
   ngOnInit() {
     // https://angular.io/guide/router#snapshot-the-no-observable-alternative
-    const symbol = this.activatedRoute.snapshot.paramMap.get('symbol');
+    const symbol = this.activatedRoute.snapshot.parent.paramMap.get('symbol');
     this.iexService.stockNews(symbol).subscribe(r => this.newsItems = r);
   }
 }

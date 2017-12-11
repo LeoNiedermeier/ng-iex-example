@@ -13,7 +13,7 @@ export class StockCompanyComponent implements OnInit {
   constructor(private iexService: IexService, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
-    const symbol = this.activatedRoute.snapshot.paramMap.get('symbol');
+    const symbol = this.activatedRoute.snapshot.parent.paramMap.get('symbol');
     this.iexService.stockCompany(symbol).subscribe(r => this.stockCompany = r);
   }
 

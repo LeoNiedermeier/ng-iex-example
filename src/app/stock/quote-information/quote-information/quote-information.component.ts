@@ -1,8 +1,8 @@
-import { IexService } from '../../../shared/iex.service';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { QuoteInformation } from '../../../shared/quote-information';
-import { Observable } from 'rxjs/Observable';
+import {IexService} from '../../../shared/iex.service';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {QuoteInformation} from '../../../shared/quote-information';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   templateUrl: './quote-information.component.html'
@@ -17,7 +17,7 @@ export class QuoteInformationComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.symbol = this.activatedRoute.snapshot.paramMap.get('symbol');
+    this.symbol = this.activatedRoute.snapshot.parent.paramMap.get('symbol');
 
     this.iexService
       .quoteInformation(this.symbol)
