@@ -1,0 +1,14 @@
+<div class="row">
+  <ul class="nav nav-pills nav-fill m-4">
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="[stockSymbol, 'company']" routerLinkActive="active">Company Information</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="[stockSymbol,'news']" routerLinkActive="active">News</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="[stockSymbol,'quote']" routerLinkActive="active">Quote</a>
+    </li>
+  </ul>
+</div>
+<router-outlet></router-outlet>
