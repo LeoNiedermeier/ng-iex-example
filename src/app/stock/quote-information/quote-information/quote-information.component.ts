@@ -1,7 +1,7 @@
 import { IexService } from '../../../shared/iex.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { QuoteInformation } from '../../../shared/quoteinformation';
+import { QuoteInformation } from '../../../shared/quote-information';
 import { Observable } from 'rxjs/Observable';
 
 @Component({

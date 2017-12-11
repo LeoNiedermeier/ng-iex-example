@@ -1,5 +1,5 @@
 import {IexService} from '../../../shared/iex.service';
-import {StockCompany} from '../../../shared/stockcompany';
+import {StockCompany} from '../../../shared/stock-company';
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 

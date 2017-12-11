@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import { QuoteInformation } from './shared/quoteinformation';
+import { QuoteInformation } from './shared/quote-information';
 import {QuoteInformationComponent} from './stock/quote-information/quote-information/quote-information.component';
 import {RefDataSymbolListComponent} from './refdata/ref-data-symbol-list/ref-data-symbol-list.component';
 import {Routes, RouterModule} from '@angular/router';
-import { StockCompany } from './shared/stockcompany';
+import { StockCompany } from './shared/stock-company';
 import {StockCompanyComponent} from './stock/company/company/stock-company.component';
 import {StockNewsComponent} from './stock/news/stock-news/stock-news.component';
 

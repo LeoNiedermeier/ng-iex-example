@@ -1,8 +1,8 @@
 import {Quote} from './quote';
-import {QuoteInformation} from './quoteinformation';
-import {StockNewsItem} from './stocknewsitem';
-import {RefDataSymbol} from './refdatasymbol';
-import {StockCompany} from './stockcompany';
+import {QuoteInformation} from './quote-information';
+import {StockNewsItem} from './stock-news-item';
+import {RefDataSymbol} from './ref-data-symbol';
+import {StockCompany} from './stock-company';
 import {DatePipe} from '@angular/common';
 import {Injectable, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';

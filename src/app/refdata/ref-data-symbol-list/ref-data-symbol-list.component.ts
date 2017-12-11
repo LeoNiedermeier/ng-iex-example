@@ -1,5 +1,5 @@
 import {IexService} from '../../shared/iex.service';
-import {RefDataSymbol} from '../../shared/refdatasymbol';
+import {RefDataSymbol} from '../../shared/ref-data-symbol';
 import {Component, OnInit} from '@angular/core';
 
 @Component({

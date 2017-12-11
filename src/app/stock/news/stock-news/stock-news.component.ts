@@ -1,5 +1,5 @@
 import {IexService} from '../../../shared/iex.service';
-import {StockNewsItem} from '../../../shared/stocknewsitem';
+import {StockNewsItem} from '../../../shared/stock-news-item';
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, ParamMap} from '@angular/router';
 import 'rxjs/add/operator/switchMap';
