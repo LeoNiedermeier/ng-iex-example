@@ -1,4 +1,12 @@
 
+<!--  TODO: kann man eine Presentation Component machen -->
+
+<!-- ngIf mit else Zweig, referenziert ein ng-template -->
+<div class="row" *ngIf="!newsItems ||  newsItems?.length == 0; else news_table ">
+  <div class="col-sm alert alert-primary text-center" role="alert">Sorry, no news available!</div>
+</div>
+
+<ng-template #news_table>
 <div class="row">
   <div class="col-sm">
     <div class="list-group">
@@ -24,4 +32,5 @@
     </div>
   </div>
 </div>
+</ng-template>
 

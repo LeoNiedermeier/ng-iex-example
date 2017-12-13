@@ -1,0 +1,13 @@
+<div class="row">
+  <!-- Achtung, Klammer um den ausdruch wegen nicht "!" -->
+  <button type="button" class="btn btn-success" (click)="login()" *ngIf="!(hasRoleAdmin | async)">Login</button>
+  <button type="button" class="btn btn-danger" (click)="logout()" *ngIf="hasRoleAdmin | async">Logout</button>
+</div>
+<div class="row">
+  <ul class="nav nav-pills nav-fill m-4">
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['dashboard']" routerLinkActive="active">Dashboard</a>
+    </li>
+  </ul>
+</div>
+<router-outlet></router-outlet>

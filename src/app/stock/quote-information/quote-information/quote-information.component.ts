@@ -15,9 +15,14 @@ export class QuoteInformationComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    // wenn die Komponente erzeugt wird, sind die Daten da.
+    // https://angular.io/guide/router#snapshot-the-no-observable-alternative
+    this.qouteInformation = this.activatedRoute.snapshot.data.quoteInformation;
 
-    this.activatedRoute.data.subscribe(
-      (data: {quoteInformation, QuoteInformation}) => this.qouteInformation = data.quoteInformation
-    );
+    // oder mit subscribe
+    // man muss nicht unsubscribe: https://angular.io/guide/router#observable-parammap-and-component-reuse
+    //    this.activatedRoute.data.subscribe(
+    //      (data: {quoteInformation: QuoteInformation}) => this.qouteInformation = data.quoteInformation
+    //    );
   }
 }

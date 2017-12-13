@@ -11,11 +11,9 @@ export class StockNewsComponent implements OnInit {
 
   newsItems: Array<StockNewsItem>;
 
-  constructor(private iexService: IexService, private activatedRoute: ActivatedRoute) {}
+  constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
-    // https://angular.io/guide/router#snapshot-the-no-observable-alternative
-    const symbol = this.activatedRoute.snapshot.parent.paramMap.get('symbol');
-    this.iexService.stockNews(symbol).subscribe(r => this.newsItems = r);
+    this.activatedRoute.data.subscribe((data: {stockNews: Array<StockNewsItem>}) => this.newsItems = data.stockNews);
   }
 }

@@ -13,12 +13,12 @@
         <tr>
           <td>Open</td>
           <!-- Mit ?. null safe Abfrage -->
-          <td>{{qouteInformation.open.time | date:'dd-MM-yyyy HH:mm'}}</td>
+          <td>{{qouteInformation.open.time | date:'short'}}</td>
           <td>{{qouteInformation.open.price | number:'1.2-2'}}</td>
         </tr>
         <tr>
           <td>Close</td>
-          <td>{{qouteInformation.close.time | date:'dd-MM-yyyy HH:mm'}}</td>
+          <td>{{qouteInformation.close.time | date:'short'}}</td>
           <td>{{qouteInformation.close.price | number:'1.2-2'}}</td>
         </tr>
         <tr>

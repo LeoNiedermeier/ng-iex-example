@@ -13,6 +13,7 @@ export class StockCompanyComponent implements OnInit {
   constructor(private iexService: IexService, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
+    // https://angular.io/guide/router#snapshot-the-no-observable-alternative
     const symbol = this.activatedRoute.snapshot.parent.paramMap.get('symbol');
     this.iexService.stockCompany(symbol).subscribe(r => this.stockCompany = r);
   }
