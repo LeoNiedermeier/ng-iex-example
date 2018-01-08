@@ -15,7 +15,7 @@ const routes: Routes = [
         path: 'dashboard',
         component: DashboardComponent,
         // TODO: NavigationCancel Event handling
-        canActivate: [HasRoleAdminGuard]
+        //  canActivate: [HasRoleAdminGuard]
       }
     ]
   }

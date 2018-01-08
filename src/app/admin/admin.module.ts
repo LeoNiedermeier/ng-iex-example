@@ -17,8 +17,8 @@ import {AuthenticationService} from './shared/authentication.service';
     OverviewComponent,
     DashboardComponent],
   providers: [
-    HasRoleAdminGuard,
     AuthorizationService,
+    HasRoleAdminGuard,
     AuthenticationService]
 })
 export class AdminModule {}

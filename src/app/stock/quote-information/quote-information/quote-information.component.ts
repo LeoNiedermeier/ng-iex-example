@@ -1,18 +1,16 @@
-import {IexService} from '../../../shared/iex.service';
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {QuoteInformation} from '../../../shared/quote-information';
-import {Observable} from 'rxjs/Observable';
+import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { IexService } from '../../../shared/iex.service';
+import { Observable } from 'rxjs/Observable';
+import { QuoteInformation } from '../../../shared/quote-information';
 
 @Component({
   templateUrl: './quote-information.component.html'
 })
 export class QuoteInformationComponent implements OnInit {
-
   qouteInformation: QuoteInformation;
 
-  constructor(private activatedRoute: ActivatedRoute
-  ) {}
+  constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
     // wenn die Komponente erzeugt wird, sind die Daten da.
