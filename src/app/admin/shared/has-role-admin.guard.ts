@@ -7,9 +7,11 @@ import {Observable} from 'rxjs/Observable';
 export class HasRoleAdminGuard implements CanActivate {
 
   constructor(private authorizationService: AuthorizationService) {
+    console.log(' -> HasRoleAdminGuard');
   }
 
-  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     return this.authorizationService.hasRole('admin');
   }
 }
+
