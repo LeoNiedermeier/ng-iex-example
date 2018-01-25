@@ -7,6 +7,7 @@ import {Observable} from 'rxjs/Observable';
 export class HasRoleAdminGuard implements CanActivate {
 
   constructor(private authorizationService: AuthorizationService) {
+
     console.log(' -> HasRoleAdminGuard');
   }
 

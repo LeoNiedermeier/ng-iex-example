@@ -8,7 +8,6 @@ export class EventService implements OnDestroy {
 
   private readonly subject = new Subject<any>();
   constructor() {
-    console.log('CONSTRUKTOR EventService ');
   }
 
 
