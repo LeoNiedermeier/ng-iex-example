@@ -12,6 +12,7 @@ export class RefDataSymbolListComponent implements OnInit {
   constructor(private iexService: IexService) {}
 
   ngOnInit(): void {
+    // Beispiel: Liste wird direkt geholt und eingefügt
     this.refDataSymbols =
       this.iexService.allRefDataSymbols();
   }

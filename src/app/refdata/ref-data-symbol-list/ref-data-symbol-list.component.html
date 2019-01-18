@@ -15,10 +15,10 @@
           <td class="w-100 ">{{item.name}}</td>
           <td>{{item.symbol}}</td>
           <td class="text-nowrap">
-            <!--  -->
-            <a class="btn btn-primary btn-sm" role="button" [routerLink]="['/stock',item.symbol,'company']"   >Details</a>
-            <a class="btn btn-info btn-sm" role="button" [routerLink]="['/stock', item.symbol, 'news']">News</a>
-            <a class="btn btn-secondary btn-sm" role="button">Quote</a>
+            <!--  routet nach /stock/{item.symbol}/company etc.-->
+            <a class="btn btn-primary btn-sm mx-1" role="button" [routerLink]="['/stock',item.symbol,'company']">Details</a>
+            <a class="btn btn-info btn-sm mx-1" role="button" [routerLink]="['/stock', item.symbol, 'news']">News</a>
+            <a class="btn btn-secondary btn-sm mx-1" role="button"  [routerLink]="['/stock', item.symbol, 'quote']">Quote</a>
           </td>
         </tr>
       </tbody>

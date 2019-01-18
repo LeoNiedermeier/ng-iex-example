@@ -1,7 +1,7 @@
 import {Injectable, OnDestroy} from '@angular/core';
-import {Subscription} from 'rxjs/Subscription';
-import {Subject} from 'rxjs/Subject';
-import 'rxjs/add/operator/filter';
+import {Subscription, Subject} from 'rxjs';
+import { filter } from 'rxjs/operators';
+
 
 @Injectable()
 export class EventService implements OnDestroy {
@@ -18,7 +18,7 @@ export class EventService implements OnDestroy {
   subscribe<T>(eventType: {new(...args: any[]): T},
     next?: (value: any) => void, error?: (error: any) => void, complete?: () => void):
     Subscription {
-    return this.subject.filter(e => e.constructor === eventType).subscribe(next, error, complete);
+    return this.subject.pipe(filter(e => e.constructor === eventType)).subscribe(next, error, complete);
   }
 
   publish(event: any): void {

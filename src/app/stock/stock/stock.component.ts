@@ -12,6 +12,7 @@ export class StockComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // 'symbol' wird als path parameter geliefert
     this.stockSymbol = this.activatedRoute.snapshot.paramMap.get('symbol');
   }
 }

@@ -3,10 +3,8 @@ import {EventService} from '../../shared/event/event.service';
 import {AuthenticationService} from '../shared/authentication.service';
 import {AuthorizationService} from '../shared/authorization.service';
 import {LoginEvent} from '../shared/login-event';
-import {LogoutEvent} from '../shared/logout-event';
 import {Component, OnInit, OnDestroy} from '@angular/core';
-import {Subscription} from 'rxjs/Subscription';
-import {Observable} from 'rxjs/Observable';
+import {Subscription, Observable} from 'rxjs';
 
 @Component({
   templateUrl: './overview.component.html'
@@ -18,8 +16,8 @@ export class OverviewComponent implements OnInit, OnDestroy {
 
   hasRoleAdmin: Observable<boolean>;
 
-  constructor(private authenticationService: AuthenticationService,
-    private authorizationService: AuthorizationService, private eventService: EventService) {}
+  constructor(private readonly authenticationService: AuthenticationService,
+    private readonly authorizationService: AuthorizationService, private readonly eventService: EventService) {}
 
   login() {
     console.log('Login');

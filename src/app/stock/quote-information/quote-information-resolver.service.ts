@@ -2,7 +2,7 @@ import {IexService} from '../../shared/iex.service';
 import {QuoteInformation} from '../../shared/quote-information';
 import {Injectable} from '@angular/core';
 import {Resolve, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
 
 @Injectable()
 export class QuoteInformationResolverService implements Resolve<QuoteInformation> {

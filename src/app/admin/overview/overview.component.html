@@ -1,7 +1,6 @@
 <div class="row">
   <!-- Achtung, Klammer um den Ausdruck wegen nicht "!" -->
   <!-- hasRoleAdmin ist eine Observable, also eine async Pipe dahinter -->
-  <button type="button" class="btn btn-success" (click)="login()" *ngIf="!(hasRoleAdmin | async)">Login</button>
   <button type="button" class="btn btn-danger" (click)="logout()" *ngIf="hasRoleAdmin | async">Logout</button>
 </div>
 <div class="row">

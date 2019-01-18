@@ -1,24 +1,27 @@
-import {Injectable} from '@angular/core';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
+import {EventListener} from '../../shared/event/event-decorator';
+import {LoginEvent} from './login-event';
+import {Injectable, OnInit, OnDestroy} from '@angular/core';
+import {BehaviorSubject, Observable} from 'rxjs';
+import { map } from 'rxjs/operators';
+
 
 
 @Injectable()
-export class AuthorizationService {
+export class AuthorizationService implements OnInit, OnDestroy {
 
   // BehaviorSubject merkt sich das letzte Element, das dann die neuen Subscribers auch bekommen.
   // https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/subjects/behaviorsubject.md
   private readonly roles = new BehaviorSubject<Array<string>>([]);
 
-  constructor() {}
+  constructor() {
+  }
 
   hasRole(role: string): Observable<boolean> {
     // map ist rxjs Operator, hier Array<string> wird auf boolean Observable abgebildet.
-    return this.roles.map(
+    return this.roles.pipe(map(
       // includes ist eine Array Methode. Überprüft, ob das übergebene Element im Array vorhanden ist.
       // Da eine Observable zurückgegeben wird, wird der Ausdruch erst später ausgewertet.
-      r => r.includes(role));
+      r => r.includes(role)));
   }
 
 
@@ -31,5 +34,16 @@ export class AuthorizationService {
     } else {
       this.roles.next([]);
     }
+  }
+  ngOnInit(): void {
+    console.log('ON INIT');
+  }
+  ngOnDestroy(): void {
+    console.log('ON DESTROY');
+  }
+
+  @EventListener()
+  doSomething(x: LoginEvent) {
+    console.log('>>>>>>>>>>>AuthorizationService', x);
   }
 }
